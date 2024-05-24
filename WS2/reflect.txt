@@ -1,0 +1,37 @@
+///////////////////////////////////////////////////////////////////////////
+                              Reflection
+                          Workshop - #2 (P2)
+Full Name  : Khanh Anh Kiet Nguyen
+Student ID#: 170049233
+Email      : kaknguyen@myseneca.ca
+Section    : NDD
+
+Authenticity Declaration:
+
+I declare this submission is the result of my own work and has not been
+shared with any other student or 3rd party content provider. This submitted
+piece of work is entirely of my own creation.
+///////////////////////////////////////////////////////////////////////////
+
+1. 
+a) 
+	The variable 'a' in the first code snippet is 4
+	The variable 'a' in the second code snippet is 3
+b)
+	It's different because a++ is a post-increment, mean the machine display a first before add 1 to a.
+	In the first snippet, a already increase 1 before print. Otherwise, in the second snippet, a++ in the print function and a++ is a post increment, so a is incremented after it is passed to the printf function.
+
+2. 
+	Because the float type are typically 32-bit representations, so there are only 23 bits for fraction. This will cause precision issues.
+For example, 10.11 can convert into 0 - 1000 0010 - 0100 0011 1000 0101 0001 111 (010 - truncated) IDEE754 single precision. When we try to convert back to decimal we gonna receive 10.1099996567. So when we multiple 100, which mean 10.1099996567*100 = 1010.99996567 and convert it to int 1010. So the price1 and price3 have the same issue.
+	However, price2 and price4 are double type, which are typically 64-bit representations, it will be more exactly than float 32-bits but costs memory. So the 10.11 and 10.14 have more space for fraction and so the numbers don't change.
+
+
+
+3. 
+
+	For the first example, because the money have integer type, when integer divide by integer (100), it is explicit. so money/100 is decimal type, when we expect the output have .2 and double, it will error and only show 0.
+	For the second example, because money/100 is decimal type after epliciting integer of double (20.31), the result of money/100 is 20.00 . And we also expect the output is decimal type, it will print 20.00. 
+	For the third example, (double)money is implicit casts because from integer type we convert to bigger type - double. So when double divide by integer, the result will be double. and we also expect to print .2lf, means this is double so the output will be 20.31
+	And finally, The division ((double)money / 100) results in a double precision floating-point value. However, the format specifier %d expects an integer, double value is coerced or truncated to an integer. The output will be error.
+

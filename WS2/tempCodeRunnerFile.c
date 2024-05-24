@@ -1,0 +1,1 @@
+(float)remaining_balance/100
