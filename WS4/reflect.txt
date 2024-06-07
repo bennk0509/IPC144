@@ -1,8 +1,8 @@
 ///////////////////////////////////////////////////////////////////////////
                                Reflection
                              Workshop - #4
-Full Name  : 
-Student ID#: 
+Full Name  : Khanh Anh Kiet Nguyen
+Student ID#: 170049233
 
 Authenticity Declaration:
 I declare this submission is the result of my own work and has not been
@@ -10,3 +10,12 @@ shared with any other student or 3rd party content provider. This submitted
 piece of work is entirely of my own creation.
 ///////////////////////////////////////////////////////////////////////////
 
+1. After using different types of iteration constructs in this workshop, you learn that you can use any of the 
+iteration constructs do/while, while or for to solve a programming task. Compare the use of the while construct 
+and the do/while construct in getting and evaluating the user’s input. Explain. 
+ 
+2. In this workshop, you used “if” optional path constructs and “if/else if” alternative path logic. Give an example 
+from the workshop where using the “if/else if” alternative path construct is more efficient than the “if” optional 
+path.  
+3. With the completion of this workshop, you must have begun to appreciate why code formatting is important. 
+Explain how you made your code – especially the iteration and selection logic parts – easy to read and maintain.
