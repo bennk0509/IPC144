@@ -25,7 +25,7 @@ int main(void)
     int year = 0;
     int month = 0;
     int i = 0;
-    char d;
+    char d = " ";
     float morning_rate_total = 0, evening_rate_total = 0;
     printf("General Well-being Log\n");
     printf("======================\n");

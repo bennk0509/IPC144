@@ -14,7 +14,7 @@ int main(void)
         }
         else
         {
-            total-=one*two;
+            total -=one*two;
         }
     }
     printf("%d",total);
