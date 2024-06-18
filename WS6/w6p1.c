@@ -34,17 +34,18 @@ int main(void)
 	{
 		printf("Enter your monthly NET income: $");
 		scanf("%f",&monthNetIncome);
-		if (monthNetIncome < 500)
+		if (monthNetIncome < minIncome)
 		{
 			printf("ERROR: You must have a consistent monthly income of at least $500.00\n");
 		}
-		else if(monthNetIncome > 400000)
+		else if(monthNetIncome > maxIncome)
 		{
 			printf("ERROR: Liar! I'll believe you if you enter a value no more than $400000.00\n");
 		}
+		printf("\n");
 
 	} while (!(monthNetIncome >= 500 && monthNetIncome < 400000));
-	printf("\n");
+	
 	do
 	{
 		printf("How many wish list items do you want to forecast?: ");
@@ -56,13 +57,14 @@ int main(void)
 
 	} while (!(numOfItems >= 1 && numOfItems <= 10));
 	
+	printf("\n");	
 	double listCostOfItems[numOfItems];
 	int listOfPriority[numOfItems];
 	char listOfFinancedOptions[numOfItems];
 	double totalCost = 0;
 	for(i=0;i<numOfItems;i++)
 	{
-		printf("Item-%d Details\n",i);
+		printf("Item-%d Details:\n",i+1);
 		do
 		{
 			printf("   Item cost: $");
@@ -86,13 +88,13 @@ int main(void)
 		{
 			printf("   Does this item have financing options? [y/n]: ");
 			scanf(" %c",&listOfFinancedOptions[i]);
-			printf("%c",listOfFinancedOptions[i]);
-			if (listOfFinancedOptions[i] != 'y' || listOfFinancedOptions[i] != 'n')
+			if (listOfFinancedOptions[i] != 'y' && listOfFinancedOptions[i] != 'n')
 			{
 				printf("      ERROR: Must be a lowercase 'y' or 'n'\n");
 			}
- 		} while (listOfFinancedOptions[i] != 'y' || listOfFinancedOptions[i] != 'n');
+ 		} while (listOfFinancedOptions[i] != 'y' && listOfFinancedOptions[i] != 'n');
 		
+		printf("\n");	
 		totalCost+=listCostOfItems[i];
 	}
 

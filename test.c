@@ -4,39 +4,12 @@
 
 int main(void)
 {
-    // char hello[5+1] = "HELLO";
-    // int arr[10] = {1,2,3,4,5,6};
-    // int i;
-    // // for (i=0;i<6;i++)
-    // // {
-    // //     printf("%c",hello[i]);
-    // // }
-    // printf("%d",arr[7]);
-    
-    // // int i, one=0,total=0,two=0;
-    // // total = scanf("%d %d",&two,&one);
-    // // for (i=0;i<3;i++)
-    // // {
-    // //     if (i%two)
-    // //     {
-    // //         total +=one*two;
-    // //     }
-    // //     else
-    // //     {
-    // //         total -=one*two;
-    // //     }
-    // // }
-    // // printf("%d",total);
-    // // return 0;
-    char str[] = "hello"; // 'h', 'e', 'l', 'l', 'o', '\0'
-    int ar[7] = {0};
-    int i;
-    for (i = 0; i < 7; i++)
-    {
-        printf("%d ", ar[i]);
-    }
-    printf("String: %s\n", str); // Output: hello
-    
+    double totalprice = 1206575.55;
+    double income = 6225.88;
+
+    int month = (int)totalprice/income+1;
+    printf("%d\n",month/12);
+    printf("%d",month%12);
     return 0;
 }
 // #include <stdio.h>
