@@ -1,8 +1,8 @@
 ///////////////////////////////////////////////////////////////////////////
                                Reflection
                              Workshop - #6
-Full Name  : 
-Student ID#: 
+Full Name  : Khanh Anh Kiet Nguyen
+Student ID#: 170049233
 
 Authenticity Declaration:
 I declare this submission is the result of my own work and has not been
@@ -10,3 +10,191 @@ shared with any other student or 3rd party content provider. This submitted
 piece of work is entirely of my own creation.
 ///////////////////////////////////////////////////////////////////////////
 
+1. In part 2 of this workshop, you used three arrays of the same size to store different data types. What do we call 
+arrays that are arranged like that? Explain why we use arrays like this (refer to your code from Part-2). 
+
+  these arrays are called parallel arrays. We use parallel arrays to store different data types because it is easier to
+  manage and manipulate the data. 
+  For example, in the code from Part-2, we have three arrays: 
+    double listCostOfItems[numOfItems];
+	  int listOfPriority[numOfItems];
+	  char listOfFinancedOptions[numOfItems];
+  
+  The first array stores the cost of items, the second array stores the priority of items, and the third array stores the
+  financed options of items. We can easily access the data of each item by using the same index for all three arrays.
+  For example, if we want to access the first item, we can use the index 0 for all three arrays.
+
+
+2. What iteration construct is the most convenient to use with Arrays? Select one example from your code where 
+you use that iteration construct and rewrite the same logic applying one of the other two iteration constructs. 
+Summarize your findings. 
+
+  The for loop is the most convenient to use with Arrays. because in C, we already know the size of the array before 
+  we create it.
+
+  For loop:
+    for(i=0;i<numOfItems;i++)
+    {
+      printf("Item-%d Details:\n",i+1);
+      do
+      {
+        printf("   Item cost: $");
+        scanf("%lf",&listCostOfItems[i]);
+        if (listCostOfItems[i] < 100)
+        {
+          printf("      ERROR: Cost must be at least $100.00\n");
+        }
+      } while (listCostOfItems[i] < 100);
+      do
+      {
+        printf("   How important is it to you? [1=must have, 2=important, 3=want]: ");
+        scanf("%d",&listOfPriority[i]);
+        if (listOfPriority[i] < 1 || listOfPriority[i] > 3)
+        {
+          printf("      ERROR: Value must be between 1 and 3\n");
+        }
+      } while (listOfPriority[i] < 1 || listOfPriority[i] > 3);
+
+      do
+      {
+        printf("   Does this item have financing options? [y/n]: ");
+        scanf(" %c",&listOfFinancedOptions[i]);
+        if (listOfFinancedOptions[i] != 'y' && listOfFinancedOptions[i] != 'n')
+        {
+          printf("      ERROR: Must be a lowercase 'y' or 'n'\n");
+        }
+      } while (listOfFinancedOptions[i] != 'y' && listOfFinancedOptions[i] != 'n');
+
+      if (listOfPriority[i] == 1 && listOfFinancedOptions[i] == 'y')
+          {
+              finanOptionPriority[0] = 1; 
+          }
+          else if (listOfPriority[i] == 2 && listOfFinancedOptions[i] == 'y')
+          {
+              finanOptionPriority[1] = 1; 
+          }
+          else if (listOfPriority[i] == 3 && listOfFinancedOptions[i] == 'y')
+          {
+              finanOptionPriority[2] = 1; 
+          }
+
+      printf("\n");	
+      totalCost+=listCostOfItems[i];
+          totalPriorityItems[listOfPriority[i]-1] += listCostOfItems[i];
+    }
+
+  While loop:
+    while(i<numOfItems)
+    {
+      printf("Item-%d Details:\n",i+1);
+      do
+      {
+        printf("   Item cost: $");
+        scanf("%lf",&listCostOfItems[i]);
+        if (listCostOfItems[i] < 100)
+        {
+          printf("      ERROR: Cost must be at least $100.00\n");
+        }
+      } while (listCostOfItems[i] < 100);
+      do
+      {
+        printf("   How important is it to you? [1=must have, 2=important, 3=want]: ");
+        scanf("%d",&listOfPriority[i]);
+        if (listOfPriority[i] < 1 || listOfPriority[i] > 3)
+        {
+          printf("      ERROR: Value must be between 1 and 3\n");
+        }
+      } while (listOfPriority[i] < 1 || listOfPriority[i] > 3);
+
+      do
+      {
+        printf("   Does this item have financing options? [y/n]: ");
+        scanf(" %c",&listOfFinancedOptions[i]);
+        if (listOfFinancedOptions[i] != 'y' && listOfFinancedOptions[i] != 'n')
+        {
+          printf("      ERROR: Must be a lowercase 'y' or 'n'\n");
+        }
+      } while (listOfFinancedOptions[i] != 'y' && listOfFinancedOptions[i] != 'n');
+
+      if (listOfPriority[i] == 1 && listOfFinancedOptions[i] == 'y')
+          {
+              finanOptionPriority[0] = 1; 
+          }
+          else if (listOfPriority[i] == 2 && listOfFinancedOptions[i] == 'y')
+          {
+              finanOptionPriority[1] = 1; 
+          }
+          else if (listOfPriority[i] == 3 && listOfFinancedOptions[i] == 'y')
+          {
+              finanOptionPriority[2] = 1; 
+          }
+
+      printf("\n");	
+      totalCost+=listCostOfItems[i];
+          totalPriorityItems[listOfPriority[i]-1] += listCostOfItems[i];
+      i++;
+    }
+
+  Do-While loop:
+    do
+    {
+      printf("Item-%d Details:\n",i+1);
+      do
+      {
+        printf("   Item cost: $");
+        scanf("%lf",&listCostOfItems[i]);
+        if (listCostOfItems[i] < 100)
+        {
+          printf("      ERROR: Cost must be at least $100.00\n");
+        }
+      } while (listCostOfItems[i] < 100);
+      do
+      {
+        printf("   How important is it to you? [1=must have, 2=important, 3=want]: ");
+        scanf("%d",&listOfPriority[i]);
+        if (listOfPriority[i] < 1 || listOfPriority[i] > 3)
+        {
+          printf("      ERROR: Value must be between 1 and 3\n");
+        }
+      } while (listOfPriority[i] < 1 || listOfPriority[i] > 3);
+
+      do
+      {
+        printf("   Does this item have financing options? [y/n]: ");
+        scanf(" %c",&listOfFinancedOptions[i]);
+        if (listOfFinancedOptions[i] != 'y' && listOfFinancedOptions[i] != 'n')
+        {
+          printf("      ERROR: Must be a lowercase 'y' or 'n'\n");
+        }
+      } while (listOfFinancedOptions[i] != 'y' && listOfFinancedOptions[i] != 'n');
+
+      if (listOfPriority[i] == 1 && listOfFinancedOptions[i] == 'y')
+          {
+              finanOptionPriority[0] = 1; 
+          }
+          else if (listOfPriority[i] == 2 && listOfFinancedOptions[i] == 'y')
+          {
+              finanOptionPriority[1] = 1; 
+          }
+          else if (listOfPriority[i] == 3 && listOfFinancedOptions[i] == 'y')
+          {
+              finanOptionPriority[2] = 1; 
+          }
+
+      printf("\n");	
+      totalCost+=listCostOfItems[i];
+          totalPriorityItems[listOfPriority[i]-1] += listCostOfItems[i];
+      i++;
+    } while(i<numOfItems);
+
+ 
+3. Describe what you did to both test and debug your program.  How did you go about finding where the 
+problems were located (explain how you did this for both syntactic and semantic problems)?
+
+  To test and debug the program, I compiled the code using the gcc compiler and ran the executable file.
+  If there were any syntax errors, the compiler would display an error message with the line number where the 
+  error occurred, based on the error message, I would go to that line and fix the syntax error.
+
+  For semantic problems, I usually ran the program through once time to see the output and check which values are wrong
+  After that, as the second time, I will debug and add the break point, run it from the begining to the break point.
+  From this point, i will run the program step by step to see the value of each variable and check if it is correct or not.

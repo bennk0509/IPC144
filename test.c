@@ -1,17 +1,31 @@
 #define _CRT_SECURE_NO_WARNINGS
 
 #include <stdio.h>
+#include <string.h>
+#include <math.h>
+#include <stdlib.h>
 
-int main(void)
-{
-    double totalprice = 1206575.55;
-    double income = 6225.88;
+int main() {
 
-    int month = (int)totalprice/income+1;
-    printf("%d\n",month/12);
-    printf("%d",month%12);
+    if(checkBomb == 1)
+    {
+        gamePath = '!';
+    }
+    else if (checkTreasure == 1)
+    {
+        gamePath == '$';
+    }
+    else if (checkBothBombTreasure == 1)
+    {
+        gamePath == '&';
+    }
+    else
+    {
+        gamePath == '.';
+    }
     return 0;
 }
+
 // #include <stdio.h>
 
 // int main(void)

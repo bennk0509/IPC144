@@ -1,0 +1,112 @@
+///////////////////////////////////////////////////////////////////////////
+                               Reflection
+                             Workshop - #7
+Full Name  : Khanh Anh Kiet Nguyen
+Student ID#: 170049233
+
+Authenticity Declaration:
+I declare this submission is the result of my own work and has not been
+shared with any other student or 3rd party content provider. This submitted
+piece of work is entirely of my own creation.
+///////////////////////////////////////////////////////////////////////////
+
+1. 
+a)
+
+  struct PlayerInfo
+  {
+      int numOfLives;
+      char playerName;
+      int numOfTreasures;
+      int pastedPositions[70];
+  };
+
+  struct GameInfo
+  {
+      int maxNumOfMoves;
+      int numOfPositions;
+      int bombsPositions[70];
+      int treasuresPositions[70];
+  };
+
+
+b) Copy the variable declaration section of your code into this file. 
+
+  struct PlayerInfo player;
+  struct GameInfo game;
+
+  Now, revise the code for only for the variable declaration section (b) above, to demonstrate what you would 
+  have to do to make your solution work without structures. 
+
+  // Variables for PlayerInfo
+  int playerNumOfLives;
+  char playerName;
+  int playerNumOfTreasures;
+  int playerPastedPositions[70];
+
+  // Variables for GameInfo
+  int gameMaxNumOfMoves;
+  int gameNumOfPositions;
+  int gameBombsPositions[70];
+  int gameTreasuresPositions[70];
+
+  Throughout my code, I need to replace from 
+  player.numOfLives to playerNumOfLives
+  player.playerName to playerName
+  player.numOfTreasures to playerNumOfTreasures
+  player.pastedPositions[70] to playerPastedPositions[70]
+  and also the same for game.
+
+  So using structures help me to organize code better for avoiding errors and bugs while coding.
+  It provides the framing for our work and the context of it. It defines what work we will do 
+  and defines how we interrelate with others.
+
+2. 
+  In structures GameInfo I defines:
+    int gameBombsPositions[70];
+      this is the arrays to store location of bombs. each index is the correct positions and
+      the values is boolean (1 is bomb and 0 is no bomb)
+    int gameTreasuresPositions[70];
+      this is the arrays to store location of treasures. each index is the correct positions and
+      the values is boolean (1 is treasures and 0 is no treasures)
+  In structures PlayerInfo I defines:
+  int playerPastedPositions[70];
+      this is also the array to store the pastedPositions of player. each index is the correct positions and
+      the values is boolean (1 is already pasted this position and 0 is not pasted this position)
+
+  3 of them are parallel array. Because I want to use data using the same index in all arrays.
+  Using parrallel array to maintain the state of the game board. By using these arrays, you can 
+  quickly check whether a position contains a bomb or a treasure without needing complex data structures.
+ 
+3. Examine your part-2 code and identify the line number where the first deepest nested statement is located. 
+Copy this statement into this file. Provide an explanation of the complete logic required to lead for that 
+statement to be executed.
+
+if(lastMove != 0)                              // if lastMove != 0, go into the if statements
+{
+    printf("  ");                              // print double space
+    for(i=0;i<lastMove-1;i++)
+    {
+        printf(" ");                           // print the space until reach the step of lastMove
+    }
+    printf("%c\n",player.playerName);          // print player symbol in the last move
+    if(checkBomb == 1)                         // check the lastMove is the position of bombs or not
+    {
+        gamePath[lastMove-1] = '!';            // if true, update the gamePath[lastMove - 1] by !
+                                               // minus 1 Because the array start from 0
+    }
+    else if (checkTreasure == 1)               // check the lastMove is the position of treasures or not
+    {
+        gamePath[lastMove-1] = '$';            // if true, update the gamePath[lastMove - 1] by $
+                                               // minus 1 Because the array start from 0
+    }
+    else if (checkBothBombTreasure == 1)       // check the lastMove is the position of both or not
+    {
+        gamePath[lastMove-1] = '&';            // if true, update the gamePath[lastMove - 1] by &
+                                               // minus 1 Because the array start from 0
+    }
+    else
+    {
+        gamePath[lastMove-1] = '.';           // if this position doesn't have anything, update by .
+    }  
+}
