@@ -1,0 +1,68 @@
+///////////////////////////////////////////////////////////////////////////
+                               Reflection
+                             Workshop - #8
+Full Name  : Khanh Anh Kiet Nguyen
+Student ID#: 170049233
+
+Authenticity Declaration:
+I declare this submission is the result of my own work and has not been
+shared with any other student or 3rd party content provider. This submitted
+piece of work is entirely of my own creation.
+///////////////////////////////////////////////////////////////////////////
+
+1. In this workshop, you have the “convertLbsKg” function. This function returns one value in two different ways. 
+Explain how each return method works.  If we wanted to revise this function so it doesn’t provide two ways to 
+return a value, and instead, break this out into two separate functions, what would each function prototype look 
+like? 
+
+double convertLbsKg(double* pounds, double* result)
+{
+    double value = *pounds / KG_TO_LBS;
+    if(result != NULL)
+	{
+		*result = value; 
+	}
+    return value;
+}
+
+Method 1: Return via pointer, because we pass by references into this function, any happen with this parameter
+also change directly, we can return the pointer with changing value by *result = value;
+Method 2: Return directly, we can directly return value and assign it into different variable  return value;
+
+To break into 2 separate:
+
+Method 1:
+double convertLbsKg(double *lbs, double *kg) {
+    *kg = *lbs / KG_TO_LBS; 
+    return *kg;
+}
+
+Method 2:
+double convertLbsKg(double lbs) {
+    return lbs / KG_TO_LBS; 
+}
+
+
+
+ 
+2. Name a few functions in this workshop where they are highly cohesive and loosely coupled and explain why.
+
+convertLbsKg, convertLbs, calculateCostPerServing, 
+calculateCostPerCal:
+  This function calculates the cost per serving based on given parameters. 
+  It focuses solely on this computation and doesn't handle unrelated tasks.
+  It takes parameters explicitly and computes the result, making it versatile and easy to integrate into 
+  different contexts without dependencies on external states or complex interactions.
+
+
+ 
+3. You used a header (.h) file for the first time in this workshop. The header file also had a source code file (.c) to 
+complement it where the function definitions were placed. What are your thoughts on using this design and 
+approach to manage the development of the application? Provide specific references to the workshop to help you 
+communicate your remarks.
+
+  Using header (.h) files along with source code (.c) files is a structured and efficient approach to managing application 
+  development in C. It promotes modularity, encapsulation, reusability, and maintainability, all of which are crucial for 
+  building scalable and maintainable software systems. The workshop scenario highlights these benefits by demonstrating 
+  how functions and their implementations can be organized into cohesive modules, facilitating better code organization and 
+  development practices.
