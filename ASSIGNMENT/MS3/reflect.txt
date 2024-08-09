@@ -1,0 +1,104 @@
+
+1. In MS2 of this project, you were able to use the string library. Select two code snippets from
+your MS1 where you replace your code with one function from the string library and explain the
+benefits of using the string library functions over your code. (Minimum: 150 words)
+
+
+Actually in my coding, I prefer using manual code over string library because I want to respect what I written and also maintain control over the code. However, I acknowledge that using certain library functions can enhance time complexity and memory efficiency when necessary.
+
+For instance:
+I will use the isDigit function in string library to improve efficiency and readability. This code below has a time complexity of O(10) for checking 1 number and requires storing an array size 10 for digits.
+//OLD VERSION
+char numDigit[10] = {'0','1','2','3','4','5','6','7','8','9'};
+int isDigit = 0;
+int j;
+for(j=0;j<10;j++)
+{
+        if(phoneNumber[n] == numDigit[j])
+    {
+        isDigit = 1;
+        break;
+    }   
+}
+
+//USING LIBRARY
+if (isdigit(phoneNumber[n])) {
+    isDigit = 1;
+}
+
+Similarly, when copying strings, I initially used a manual method to ensure null-termination. However, using the strcpy function from library can also save time and memory. It provides a more efficient and less error-prone way to copy strings, enhancing both performance and code readability.
+
+if (i >= minRange && i <= maxRange) {
+	// Copy the valid input to the output string manually
+	for (j = 0; j < i; j++) {
+		inputString[j] = str[j];
+	}
+	inputString[i] = '\0'; // Ensure null-termination
+}
+
+2. At some point in your solution, you would have had to apply a string copy library function to
+perform string copying. There are two variations of this function – one that is much more
+preferrable over the other. What are these functions, what are the significant differences
+between the two, and provide the line of code where you should have applied this more
+preferred function (if you didn’t use it, modify your version to use it). Explain in the context you
+have used it, how it works.
+
+There are two common string copy function
+
+1. strcp(destination, source) function copies the entire of source string to the destination and returns the pointer to the target string after completing copy. The strcp function will delete the entire contents of the destination before copying.
+Advantages: Simple and easy to use
+Disadvantages: if the destination doesn't have enough buffer to store the string 2, it will be buffer overflow. 
+//example
+char str1[100] = "Hello World"; //note for the buffer.
+char str2[100] = "HELLO WORLD REPLACED";
+strcpy(str1,str2);
+printf("str1: %s",str1);
+
+2. strncpy(destination, source, n) copies n characters from the source string to the destination. The target character string will keep the characters after n copies character. As the code below, the we can control how many character copies into the destination
+Advantages: Provides better control over the number of characters copied, reducing the risk of buffer overflows.
+Disadvantages: sometimes when the length of source string larger than n, we need to add null terminator manually into destination.
+
+//example
+int main(){
+    char s[1000] = "123456789";
+    char t[1000] = "abcdefghklmn";
+    strncpy(s, t, 6);
+    printf("%s\n", s);  	//abcdef789
+    return 0;
+}
+
+In my coding, i will use strncpy to maintain safety by avoiding potential buffer overflows.
+
+if (i >= minRange && i <= maxRange) {
+	// Copy the valid input to the output string manually
+	for (j = 0; j < i; j++) {
+		inputString[j] = str[j];
+	}
+	inputString[i] = '\0'; // Ensure null-termination
+}
+
+if (i >= minRange && i <= maxRange) {
+    strncpy(inputString, str, i);
+    inputString[i] = '\0';
+}
+
+
+
+3. In MS3, the list of appointments should always be listed in an ascending order based on the
+appointment’s date/time. What did you do to keep the list of appointments in the correct order
+regardless of any changes. Explain the logic you applied. To the best of your ability, can you
+identify where you think it can be improved where you were not able to figure out the code part
+to make it better?
+
+https://stackoverflow.com/questions/13372688/sorting-members-of-structure-array
+
+To be honest, it took me two days to figure out how to sort the list of appointments. My initial idea was to use a sorting algorithm. However, even though I considered using heap sort, merge sort, or quick sort, I wasn't sure how to apply them to a struct.
+
+After researching online, I discovered that the C standard library provides the `qsort` function, which can be used for sorting arrays. I also learned that I could create a `compareAppointments` function to compare appointments by year, month, day, hour, and minute.
+
+To maintain the list of appointments in the correct order despite any changes, I ensure that the list is sorted after each modification. This guarantees that, no matter how many changes are made, the list always reflects the correct chronological order.
+
+To improve this approach, instead of sorting the entire array after each modification, we could use binary search to find the correct position for insertion, thus avoiding a full sort every time. Additionally, rather than using traditional data structures like arrays or linked lists, we might consider more efficient data structures such as trees (e.g., AVL trees or red-black trees) to enhance performance.
+
+
+

@@ -1,4 +1,5 @@
-for (i=0;i<6;i++)
-    // {
-    //     printf("%c",hello[i]);
-    // }
+ // printf("////////////////////////////////////////\n");
+    // printf("TEST #8 RESULT: ");
+    // printf("%s (expected result: HORSES)\n", cstringValue);
+    // printf("////////////////////////////////////////\n\n");
+    // return 0;

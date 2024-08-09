@@ -1,12 +1,12 @@
 import pyautogui as gui
 import time
 
-datafile = 'a1ms1-inputs.txt'
+datafile = 'a1ms2-inputs.txt'
 
 # pause 3 seconds while you set focus to the terminal/console window:
 print('Click on the terminal/console window where the automated keyboard data needs to be entered...')
 print('NOTE: You have 5 seconds to do this!')
-time.sleep(2)
+time.sleep(3)
 
 # auto type test data from text file:
 #with open('w4p2-inputs.txt', 'r') as tst:

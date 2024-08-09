@@ -1,25 +1,48 @@
+/*/////////////////////////////////////////////////////////////////////////
+                        Assignment 1 - Milestone 3
+Full Name  : Khanh Anh Kiet Nguyen
+Student ID#: 170049233
+Email      : kaknguyen@myseneca.ca
+Section    : NCC
+
+Authenticity Declaration:
+I declare this submission is the result of my own work and has not been
+shared with any other student or 3rd party content provider. This submitted
+piece of work is entirely of my own creation.
+/////////////////////////////////////////////////////////////////////////*/
+
+#define _CRT_SECURE_NO_WARNINGS
+
 #include <stdio.h>
+
 #include "core.h"
 
-// As demonstrated in the course notes:  
-// https://intro2c.sdds.ca/D-Modularity/input-functions#clearing-the-buffer  
-// Clear the standard input buffer 
-void clearInputBuffer(void) 
-{ 
-    // Discard all remaining char's from the standard input buffer: 
-    while (getchar() != '\n') 
-    { 
-        ; // do nothing! 
-    } 
-} 
- 
-// Wait for user to input the "enter" key to continue 
-void suspend(void) 
-{ 
-    printf("<ENTER> to continue..."); 
-    clearInputBuffer(); 
-    putchar('\n'); 
+//////////////////////////////////////
+// USER INTERFACE FUNCTIONS
+//////////////////////////////////////
+
+// Clear the standard input buffer
+void clearInputBuffer(void)
+{
+    // Discard all remaining char's from the standard input buffer:
+    while (getchar() != '\n')
+    {
+        ; // do nothing!
+    }
 }
+
+// Wait for user to input the "enter" key to continue
+void suspend(void)
+{
+    printf("<ENTER> to continue...");
+    clearInputBuffer();
+    putchar('\n');
+}
+
+
+//////////////////////////////////////
+// USER INPUT FUNCTIONS
+//////////////////////////////////////
 
 //Get valid integer from the keyboard
 int inputInt()
@@ -106,7 +129,7 @@ void inputCString(char* inputString, int minRange, int maxRange)
         {
             i++;
         }
-        if(i == minRange == maxRange)
+        if(i != minRange && i!= maxRange && minRange == maxRange)
         {
             printf("ERROR: String length must be exactly %d chars: ",minRange);
 
@@ -132,7 +155,7 @@ void inputCString(char* inputString, int minRange, int maxRange)
     }
 }
 
-void displayFormattedPhone(char* phoneNumber)
+void displayFormattedPhone(const char* phoneNumber)
 {
     int n = 0;
     char numDigit[10] = {'0','1','2','3','4','5','6','7','8','9'};
@@ -172,3 +195,16 @@ void displayFormattedPhone(char* phoneNumber)
         printf("(___)___-____");
     }
 }
+
+
+//
+// Copy your work done from Milestone #2 (core.c) into this file
+// - Organize your functions in the same order as they are listed in the core.h file
+//
+
+
+
+//////////////////////////////////////
+// UTILITY FUNCTIONS
+//////////////////////////////////////
+
